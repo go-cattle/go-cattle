@@ -1,0 +1,95 @@
+Disease: Mastitis
+Symptoms: Swollen udder, decreased milk production, fever
+Remedies: Antibiotics, supportive care
+
+Disease: Bovine viral diarrhea (BVD)
+Symptoms: Diarrhea, fever, decreased milk production
+Remedies: Supportive care, vaccination
+
+Disease: Foot-and-mouth disease (FMD)
+Symptoms: Mouth sores, fever, lameness
+Remedies: Quarantine, culling
+
+Disease: Bovine tuberculosis (bTB)
+Symptoms: Coughing, weight loss, enlarged lymph nodes
+Remedies: Antibiotics, culling
+
+Disease: Blackleg
+Symptoms: Lameness, fever, muscle swelling
+Remedies: Antibiotics, vaccination
+
+Disease: Anthrax
+Symptoms: Sudden death, fever, bloody discharge
+Remedies: Antibiotics, vaccination
+
+Disease: Bovine respiratory disease (BRD)
+Symptoms: Coughing, fever, decreased appetite
+Remedies: Antibiotics, supportive care
+
+Disease: Brucellosis
+Symptoms: Abortion, infertility, lameness
+Remedies: Antibiotics, vaccination
+
+Disease: Lumpy skin disease (LSD)
+Symptoms: Skin nodules, fever, decreased milk production
+Remedies: Supportive care
+
+Disease: Trypanosomiasis
+Symptoms: Weight loss, anemia, fever
+Remedies: Antibiotics
+
+Disease: Bovine leukosis virus (BLV)
+Symptoms: Weight loss, enlarged lymph nodes, decreased milk production
+Remedies: No cure, supportive care, culling
+
+Disease: Ephemeral fever
+Symptoms: Fever, lameness, muscle stiffness
+Remedies: Supportive care
+
+Disease: Theileriosis
+Symptoms: Fever, anemia, decreased milk production
+Remedies: Antibiotics
+
+Disease: Haemonchosis
+Symptoms: Anemia, weight loss, diarrhea
+Remedies: Deworming, supportive care
+
+Disease: Trichomoniasis
+Symptoms: Abortions, infertility, vaginal discharge
+Remedies: Antibiotics
+
+Disease: Bovine papular stomatitis
+Symptoms: Mouth sores, fever, decreased appetite
+Remedies: Supportive care
+
+Disease: Bovine ephemeral fever
+Symptoms: Fever, muscle stiffness, decreased appetite
+Remedies: Supportive care
+
+Disease: Q fever
+Symptoms: High fever, muscle pain, pneumonia
+Remedies: Antibiotics
+
+Disease: Cryptosporidiosis
+Symptoms: Diarrhea, fever, decreased appetite
+Remedies: Supportive care
+
+Disease: Pasteurellosis
+Symptoms: Pneumonia, septicemia, fever
+Remedies: Antibiotics
+
+Disease: Coccidiosis
+Symptoms: Diarrhea, weight loss, dehydration
+Remedies: Deworming, supportive care
+
+Disease: Mycotic abortion
+Symptoms: Abortion, stillbirth, infertility
+Remedies: Antibiotics
+
+Disease: Acetonaemia
+Symptoms: Lethargy, decreased milk production, ketone breath
+Remedies: Diet management, supportive care
+
+Disease: Bluetongue
+Symptoms: Fever, mouth sores, respiratory distress
+Remedies: Supportive care, vaccination
