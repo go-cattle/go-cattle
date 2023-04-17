@@ -6,7 +6,7 @@ Go-Cattle is a Python-based project developed by Sarthak Sidhant (https://sartha
 
 To use this project, you can simply clone the repository to your local machine by using the following command:
 
-```git clone https://github.com/your-username/Go-Cattle.git```
+```git clone https://github.com/Sarthak-Sidhant/Go-Cattle.git```
 
 
 ## Usage
