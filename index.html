@@ -7,7 +7,10 @@
     <h1>Cattle Disease Analyzer</h1>
     <h2>Symptoms</h2>
     <form id="symptomsForm">
-        <!-- Checkbox and label elements will be dynamically added here -->
+        <p><input type="checkbox" name="symptom" value="Symptom 1"> Symptom 1</p>
+        <p><input type="checkbox" name="symptom" value="Symptom 2"> Symptom 2</p>
+        <p><input type="checkbox" name="symptom" value="Symptom 3"> Symptom 3</p>
+        <!-- Add more checkboxes for other symptoms as needed -->
         <input type="submit" value="Submit">
     </form>
 
@@ -40,7 +43,7 @@
         // Function to display symptoms checkboxes on the website
         function displaySymptoms(symptoms) {
             const form = document.getElementById('symptomsForm');
-            for (const symptom of symptoms) {
+            const checkboxes = symptoms.map(symptom => {
                 const checkbox = document.createElement('input');
                 checkbox.type = 'checkbox';
                 checkbox.name = 'selectedSymptoms';
@@ -49,8 +52,8 @@
                 const label = document.createElement('label');
                 label.textContent = symptom;
                 form.appendChild(label);
-                form.appendChild(document.createElement('br'));
-            }
+                return checkbox;
+            });
             const submitButton = document.createElement('input');
             submitButton.type = 'submit';
             submitButton.value = 'Submit';
@@ -87,14 +90,15 @@
                         resultsDiv.innerHTML = `
                             <p>Matching Disease: ${bestMatch.name}</p>
                             <p>Matching Symptoms: ${maxMatchedSymptoms} out of ${bestMatch.symptoms.length}</p>
-                            <p>Remedy:${bestMatch.remedy.join(', ')}</p>
-; } else { const resultsDiv = document.getElementById('results'); resultsDiv.innerHTML = <p>No matching disease found.</p>`;
-}
-})
-.catch(error => {
-console.error('Error getting diseases:', error);
-});
-}    // Call the function to display symptoms checkboxes on page load
+                            <p>Remedy: ${bestMatch.remedy.join(', ')}</p>
+                            ; } else { const resultsDiv = document.getElementById('results'); resultsDiv.innerHTML = <p>No matching disease found.</p>`;
+                            }
+                            })
+                            .catch(error => {
+                            console.error('Error getting diseases:', error);
+                            });
+                            }
+                                // Call the function to display symptoms checkboxes on page load
     getDiseases()
         .then(diseases => {
             const allSymptoms = diseases.reduce((symptoms, disease) => {
