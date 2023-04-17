@@ -4,7 +4,7 @@
 <head>
   <title>Disease Checker</title>
   <style>
-    /* CSS for Disease Checker */
+  /* CSS for Disease Checker */
 
 /* Reset default margin and padding */
 body, form {
@@ -61,6 +61,12 @@ input[type="checkbox"]:checked + label:before {
   color: #00cc66;
   border: 2px solid #00cc66;
   background-color: #ffffff;
+}
+
+/* Style checkboxes container for 4 checkboxes in one line */
+#checkboxes-container div {
+  flex-basis: calc(25% - 10px); /* 25% width with 10px gap */
+  padding: 10px;
 }
 
 /* Style submit button */
