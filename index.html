@@ -3,6 +3,88 @@
 
 <head>
   <title>Disease Checker</title>
+  <style>
+    /* CSS for Disease Checker */
+
+/* Reset default margin and padding */
+body, form {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set background color and font style */
+body {
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+}
+
+/* Set container styles */
+#checkboxes-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+/* Style checkboxes */
+input[type="checkbox"] {
+  /* Hide default checkbox */
+  display: none;
+}
+
+/* Style custom checkboxes */
+input[type="checkbox"] + label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  color: #333333;
+}
+
+/* Style custom checkboxes - unchecked state */
+input[type="checkbox"] + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #999999;
+  background-color: #ffffff;
+}
+
+/* Style custom checkboxes - checked state */
+input[type="checkbox"]:checked + label:before {
+  content: "\2713"; /* Unicode character for checkmark */
+  font-size: 18px;
+  line-height: 18px;
+  color: #00cc66;
+  border: 2px solid #00cc66;
+  background-color: #ffffff;
+}
+
+/* Style submit button */
+button[type="submit"] {
+  display: block;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Style result container */
+#result-container {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+  </style>
 </head>
 
 <body>
