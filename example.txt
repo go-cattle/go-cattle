@@ -1,3 +1,4 @@
+
 Disease: Mastitis
 Symptoms: Swollen udder, decreased milk production, fever
 Remedies: Antibiotics, supportive care

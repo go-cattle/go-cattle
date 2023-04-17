@@ -1,90 +1,102 @@
-// Read example.txt file using Fetch API
+// Fetch data from example.txt file
 fetch('example.txt')
   .then(response => response.text())
-  .then(text => {
-    // Split text by lines
-    const lines = text.split('\n');
-    let diseases = [];
-    let symptoms = [];
-    let remedies = [];
+  .then(data => processData(data))
+  .catch(error => console.error('Error fetching data:', error));
 
-    // Loop through lines and extract disease, symptoms, and remedies
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i].trim();
-      if (line.startsWith('Disease:')) {
-        diseases.push(line.replace('Disease:', '').trim());
-      } else if (line.startsWith('Symptoms:')) {
-        const symptomList = line.replace('Symptoms:', '').trim();
-        const symptomArr = symptomList.split(',');
-        for (let j = 0; j < symptomArr.length; j++) {
-          const symptom = symptomArr[j].trim();
-          if (!symptoms.includes(symptom)) {
-            symptoms.push(symptom);
-          }
-        }
-      } else if (line.startsWith('Remedy:')) {
-        remedies.push(line.replace('Remedy:', '').trim());
+// Function to process data from example.txt file
+function processData(data) {
+  // Split the data into lines
+  const lines = data.split('\n');
+  
+  // Initialize arrays to store diseases, symptoms, and remedies
+  const diseases = [];
+  const symptoms = [];
+  const remedies = [];
+  
+  // Loop through each line of data
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i].trim();
+    
+    // Extract disease name
+    if (line.startsWith('Disease:')) {
+      const disease = line.slice(9).trim();
+      diseases.push(disease);
+    }
+    
+    // Extract symptoms
+    if (line.startsWith('Symptoms:')) {
+      const symptomList = line.slice(10).trim();
+      const symptomArr = symptomList.split(',').map(symptom => symptom.trim());
+      symptoms.push(...symptomArr);
+    }
+    
+    // Extract remedies
+    if (line.startsWith('Remedy:')) {
+      const remedyList = line.slice(8).trim();
+      const remedyArr = remedyList.split(',').map(remedy => remedy.trim());
+      remedies.push(...remedyArr);
+    }
+  }
+
+  // Remove duplicate symptoms
+  const uniqueSymptoms = [...new Set(symptoms)];
+
+  // Generate checkboxes for symptoms in HTML
+  const checkboxesContainer = document.getElementById('checkboxes-container');
+  for (let i = 0; i < uniqueSymptoms.length; i++) {
+    const symptom = uniqueSymptoms[i];
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.name = 'symptom';
+    checkbox.value = symptom;
+    const label = document.createElement('label');
+    label.textContent = symptom;
+    checkboxesContainer.appendChild(checkbox);
+    checkboxesContainer.appendChild(label);
+    checkboxesContainer.appendChild(document.createElement('br'));
+  }
+
+  // Add submit event listener to the form
+  const form = document.getElementById('form');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Get checked symptoms
+    const checkedSymptoms = Array.from(document.querySelectorAll('input[name="symptom"]:checked'))
+      .map(checkbox => checkbox.value);
+
+    // Find matching diseases
+    const matchingDiseases = [];
+    for (let i = 0; i < diseases.length; i++) {
+      const disease = diseases[i];
+      const diseaseSymptoms = symptoms[i].split(',').map(symptom => symptom.trim());
+      const hasCommonSymptom = diseaseSymptoms.some(symptom => checkedSymptoms.includes(symptom));
+      if (hasCommonSymptom) {
+        matchingDiseases.push(disease);
       }
     }
 
-    // Create checkboxes for symptoms
-    const checkboxesContainer = document.getElementById('checkboxes-container');
-    for (let i = 0; i < symptoms.length; i++) {
-      const symptom = symptoms[i];
-      const checkbox = document.createElement('input');
-      checkbox.type = 'checkbox';
-      checkbox.id = 'checkbox-' + i;
-      checkbox.value = symptom;
-      const label = document.createElement('label');
-      label.textContent = symptom;
-      label.setAttribute('for', 'checkbox-' + i);
-      checkboxesContainer.appendChild(checkbox);
-      checkboxesContainer.appendChild(label);
-      checkboxesContainer.appendChild(document.createElement('br'));
-    }
-
-    // Handle form submission
-    const form = document.getElementById('form');
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const selectedSymptoms = Array.from(form.elements)
-        .filter(element => element.type === 'checkbox' && element.checked)
-        .map(element => element.value);
-
-      // Find matching disease and display remedy
-      let matchingDisease = '';
-      let matchingRemedy = '';
-      for (let i = 0; i < diseases.length; i++) {
-        const disease = diseases[i];
-        const diseaseSymptoms = lines[lines.indexOf('Disease: ' + disease) + 1]
-          .replace('Symptoms:', '')
-          .trim()
-          .split(', ')
-          .map(symptom => symptom.trim());
-        if (selectedSymptoms.every(symptom => diseaseSymptoms.includes(symptom))) {
-          matchingDisease = disease;
-          matchingRemedy = lines[lines.indexOf('Disease: ' + disease) + 2].replace('Remedy:', '').trim();
-          break;
-        }
+    // Display matching diseases and remedies
+    const resultContainer = document.getElementById('result-container');
+    resultContainer.innerHTML = '';
+    if (matchingDiseases.length > 0) {
+      const heading = document.createElement('h2');
+      heading.textContent = 'Matching Diseases:';
+      resultContainer.appendChild(heading);
+      const ul = document.createElement('ul');
+      matchingDiseases.forEach(disease => {
+        const li = document.createElement('li');
+        li.textContent = disease + ' - Remedy: ' + remedies[diseases.indexOf(disease)];
+        ul.appendChild(li);
+      });
+      resultContainer.appendChild(ul);
+    } else{
+      const message = document.createElement('p');
+      message.textContent = 'No matching disease found.';
+      resultContainer.appendChild(message);
       }
-
-      // Display matching disease and remedy
-      const resultContainer = document.getElementById('result-container');
-      resultContainer.textContent = '';
-      if (matchingDisease !== '') {
-        const diseaseHeading = document.createElement('h3');
-        diseaseHeading.textContent = 'Matching Disease: ' + matchingDisease;
-        resultContainer.appendChild(diseaseHeading);
-        const remedyParagraph = document.createElement('p');
-        remedyParagraph.textContent = 'Remedy: ' + matchingRemedy;
-        resultContainer.appendChild(remedyParagraph);
-      } else {
-        const noMatchParagraph = document.createElement('p');
-        noMatchParagraph.textContent = 'No matching disease found.';
-        resultContainer.appendChild(noMatchParagraph);
+      });
       }
-    });
-  })
-  .catch(error => {
-    console.error('Failed to fetch example.txt:', error);
-  });
+      
+      
