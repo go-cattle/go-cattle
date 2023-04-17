@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cattle Disease Analyzer</title>
+</head>
+<body>
+    <h1>Cattle Disease Analyzer</h1>
+    <h2>Symptoms</h2>
+    <form id="symptomsForm">
+        <!-- Checkbox and label elements will be dynamically added here -->
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>Results</h2>
+    <div id="results"></div>
+
+    <script>
+        // Function to get diseases from example.txt file
+        function getDiseases() {
+            // Replace with the actual URL of example.txt file
+            const url = 'example.txt';
+            return fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    const diseases = [];
+                    const diseaseBlocks = data.split('\n\n');
+                    for (const block of diseaseBlocks) {
+                        const lines = block.split('\n');
+                        const disease = {
+                            name: lines.find(line => line.startsWith('Disease:')).substring(9).trim(),
+                            symptoms: lines.find(line => line.startsWith('Symptoms:')).substring(10).trim().split(', '),
+                            remedy: lines.find(line => line.startsWith('Remedy:')).substring(8).trim().split(', ')
+                        };
+                        diseases.push(disease);
+                    }
+                    return diseases;
+                });
+        }
+
+        // Function to display symptoms checkboxes on the website
+        function displaySymptoms(symptoms) {
+            const form = document.getElementById('symptomsForm');
+            for (const symptom of symptoms) {
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.name = 'selectedSymptoms';
+                checkbox.value = symptom;
+                form.appendChild(checkbox);
+                const label = document.createElement('label');
+                label.textContent = symptom;
+                form.appendChild(label);
+                form.appendChild(document.createElement('br'));
+            }
+            const submitButton = document.createElement('input');
+            submitButton.type = 'submit';
+            submitButton.value = 'Submit';
+            form.appendChild(submitButton);
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const selectedSymptoms = Array.from(form.elements.selectedSymptoms)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+                if (selectedSymptoms.length === 0) {
+                    alert('Please select at least one symptom.');
+                    return;
+                }
+                analyzeDisease(selectedSymptoms);
+            });
+        }
+
+        // Function to analyze selected symptoms and display matching disease and remedy
+        function analyzeDisease(selectedSymptoms) {
+            getDiseases()
+                .then(diseases => {
+                    let bestMatch = null;
+                    let maxMatchedSymptoms = 0;
+                    for (const disease of diseases) {
+                        const matchedSymptoms = disease.symptoms.filter(symptom => selectedSymptoms.includes(symptom));
+                        if (matchedSymptoms.length > maxMatchedSymptoms) {
+                            bestMatch = disease;
+                            maxMatchedSymptoms = matchedSymptoms.length;
+                        }
+                    }
+                    if (bestMatch) {
+                        const resultsDiv = document.getElementById('results');
+                        resultsDiv.innerHTML = `
+                            <p>Matching Disease: ${bestMatch.name}</p>
+                            <p>Matching Symptoms: ${maxMatchedSymptoms} out of ${bestMatch.symptoms.length}</p>
+                            <p>Remedy:${bestMatch.remedy.join(', ')}</p>
+; } else { const resultsDiv = document.getElementById('results'); resultsDiv.innerHTML = <p>No matching disease found.</p>`;
+}
+})
+.catch(error => {
+console.error('Error getting diseases:', error);
+});
+}    // Call the function to display symptoms checkboxes on page load
+    getDiseases()
+        .then(diseases => {
+            const allSymptoms = diseases.reduce((symptoms, disease) => {
+                return symptoms.concat(disease.symptoms);
+            }, []);
+            const uniqueSymptoms = Array.from(new Set(allSymptoms));
+            displaySymptoms(uniqueSymptoms);
+        })
+        .catch(error => {
+            console.error('Error getting diseases:', error);
+        });
+</script>
+</body>
+</html>
