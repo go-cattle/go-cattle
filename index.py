@@ -7,3 +7,8 @@ df = pd.read_csv("examples.txt", delimiter=":", header=None, names=["label", "te
 
 # Clean data
 df["text"] = df["text"].str.lower().str.strip()
+
+# Extract features from text
+vectorizer = CountVectorizer()
+X = vectorizer.fit_transform(df["text"])
+y = df["label"]
