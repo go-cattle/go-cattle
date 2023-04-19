@@ -12,3 +12,7 @@ df["text"] = df["text"].str.lower().str.strip()
 vectorizer = CountVectorizer()
 X = vectorizer.fit_transform(df["text"])
 y = df["label"]
+
+# Train the model
+clf = MultinomialNB()
+clf.fit(X, y)
