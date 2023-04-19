@@ -16,3 +16,10 @@ y = df["label"]
 # Train the model
 clf = MultinomialNB()
 clf.fit(X, y)
+
+# Test the model
+input_text = "fever, anemia, decreased milk production"
+input_features = vectorizer.transform([input_text.lower().strip()])
+predicted_label = clf.predict(input_features)[0]
+
+print("Predicted Disease: ", predicted_label)
