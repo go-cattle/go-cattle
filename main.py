@@ -45,3 +45,7 @@ while True:
     print("Predicted Disease: ", labels.columns[predicted_label.argmax()])
     if input("Do you want to test again? (y/n): ").lower() != "y":
         break
+
+## Model Failed
+# try 8
+# 4/20
