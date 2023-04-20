@@ -35,3 +35,11 @@ model.summary()
 # Train the model
 model.fit(padded_sequences, labels, epochs=10, verbose=1)
 
+# Test the model
+input_text = ["fever, anemia, decreased milk production"]
+input_sequences = tokenizer.texts_to_sequences(input_text)
+input_padded_sequences = tf.keras.preprocessing.sequence.pad_sequences(input_sequences, maxlen=max_length, padding="post")
+predicted_label = model.predict(input_padded_sequences)
+
+print("Predicted Disease: ", labels.columns[predicted_label.argmax()])
+
