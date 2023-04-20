@@ -32,3 +32,6 @@ model = tf.keras.Sequential([
 model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=["accuracy"])
 model.summary()
 
+# Train the model
+model.fit(padded_sequences, labels, epochs=10, verbose=1)
+
