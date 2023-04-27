@@ -2,7 +2,7 @@ import pandas as pd
 import tensorflow as tf
 
 # Load data from file
-df = pd.read_csv("example.txt", delimiter=":", header=None, names=["label", "text"])
+df = pd.read_csv("examples.txt", delimiter=":", header=None, names=["label", "text"])
 
 # Clean data
 df["text"] = df["text"].str.lower().str.strip()
@@ -42,10 +42,8 @@ while True:
     input_sequences = tokenizer.texts_to_sequences([input_text])
     input_padded_sequences = tf.keras.preprocessing.sequence.pad_sequences(input_sequences, maxlen=max_length, padding="post")
     predicted_label = model.predict(input_padded_sequences)
-    print("Predicted Disease: ", labels.columns[predicted_label.argmax()])
+    predicted_index = predicted_label[0].argmax()
+    predicted_disease = labels.columns[predicted_index]
+    print(f"Predicted Disease: {predicted_disease}")
     if input("Do you want to test again? (y/n): ").lower() != "y":
         break
-
-## Model Failed
-# try 8
-# 4/20
