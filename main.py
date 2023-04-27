@@ -42,7 +42,7 @@ while True:
     input_sequences = tokenizer.texts_to_sequences(input_text)
     input_padded_sequences = tf.keras.preprocessing.sequence.pad_sequences(input_sequences, maxlen=max_length, padding="post")
     predicted_label = model.predict(input_padded_sequences)
-    predicted_index = predicted_label[0].argmax()
+    predicted_index = tf.argmax(predicted_label, axis=-1).numpy()[0]
     predicted_disease = labels.columns[predicted_index]
     print(f"Predicted Disease: {predicted_disease}")
     if input("Do you want to test again? (y/n): ").lower() != "y":
