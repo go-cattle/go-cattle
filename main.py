@@ -47,3 +47,27 @@ while True:
     print(f"Predicted Disease: {predicted_disease}")
     if input("Do you want to test again? (y/n): ").lower() != "y":
         break
+# Total params: 55,107
+# Trainable params: 55,107
+# Non-trainable params: 0
+# _________________________________________________________________
+# Epoch 1/10
+# 3/3 [==============================] - 4s 42ms/step - loss: 1.0942 - accuracy: 0.4306
+# Epoch 2/10
+# 3/3 [==============================] - 0s 31ms/step - loss: 1.0677 - accuracy: 0.8194
+# Epoch 3/10
+# 3/3 [==============================] - 0s 27ms/step - loss: 1.0438 - accuracy: 0.9444
+# Epoch 4/10
+# 3/3 [==============================] - 0s 31ms/step - loss: 1.0137 - accuracy: 0.9722
+# Epoch 5/10
+# 3/3 [==============================] - 0s 27ms/step - loss: 0.9754 - accuracy: 0.8611
+# Epoch 6/10
+# 3/3 [==============================] - 0s 32ms/step - loss: 0.9360 - accuracy: 0.7917
+# Epoch 7/10
+# 3/3 [==============================] - 0s 24ms/step - loss: 0.8907 - accuracy: 0.8333
+# Epoch 8/10
+# 3/3 [==============================] - 0s 34ms/step - loss: 0.8316 - accuracy: 0.9028
+# Epoch 9/10
+# 3/3 [==============================] - 0s 27ms/step - loss: 0.7671 - accuracy: 0.9722
+# Epoch 10/10
+# 3/3 [==============================] - 0s 27ms/step - loss: 0.6998 - accuracy: 0.9861
