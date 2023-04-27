@@ -1,49 +1,74 @@
 import pandas as pd
-import tensorflow as tf
+from collections import defaultdict
 
-# Load data from file
-df = pd.read_csv("example.txt", delimiter=":", header=None, names=["label", "text"])
+# Read data from file
+with open('example.txt', 'r') as f:
+    data = f.read()
 
-# Clean data
-df["text"] = df["text"].str.lower().str.strip()
+# Split data into disease records
+records = data.strip().split('\n\n')
 
-# Convert labels to one-hot encoding
-labels = pd.get_dummies(df["label"])
+# Parse records into a dictionary
+diseases = defaultdict(dict)
+for record in records:
+    lines = record.strip().split('\n')
+    for line in lines:
+        key, value = line.split(':')
+        diseases[lines[0].split(':')[1].strip()][key.strip()] = value.strip()
 
-# Tokenize text
-tokenizer = tf.keras.preprocessing.text.Tokenizer()
-tokenizer.fit_on_texts(df["text"])
-sequences = tokenizer.texts_to_sequences(df["text"])
-word_index = tokenizer.word_index
+# Create dictionary mapping symptoms to their frequency in each disease
+symptoms = {}
+for disease, data in diseases.items():
+    symptoms[disease] = {}
+    for symptom in data['Symptoms'].split(','):
+        symptoms[disease][symptom.strip()] = 1
 
-# Pad sequences to a fixed length
-max_length = 100
-padded_sequences = tf.keras.preprocessing.sequence.pad_sequences(sequences, maxlen=max_length, padding="post")
+# Create feature matrix X and target vector y
+X = pd.DataFrame(symptoms).fillna(0)
+y = pd.Series(list(symptoms.keys()))
 
-# Build the model
-model = tf.keras.Sequential([
-    tf.keras.layers.Embedding(len(word_index) + 1, 64, input_length=max_length),
-    tf.keras.layers.Conv1D(128, 5, activation="relu"),
-    tf.keras.layers.GlobalMaxPooling1D(),
-    tf.keras.layers.Dense(64, activation="relu"),
-    tf.keras.layers.Dense(len(labels.columns), activation="softmax")
-])
+# Define the Naive Bayes Classifier
+class NaiveBayesClassifier:
+    
+    def __init__(self):
+        self.priors = None
+        self.likelihoods = None
+    
+    def fit(self, X, y):
+        # Calculate priors
+        self.priors = y.value_counts(normalize=True)
+        # Calculate likelihoods
+        self.likelihoods = {}
+        for feature in X.columns:
+            self.likelihoods[feature] = {}
+            for class_val in y.unique():
+                self.likelihoods[feature][class_val] = (X.loc[y == class_val, feature].sum() + 1) / (y == class_val).sum() # Add-one smoothing
+    
+    def predict(self, X):
+        # Calculate posterior probabilities
+        posteriors = pd.DataFrame(index=X.index, columns=self.priors.index)
+        for disease, prior in self.priors.items():
+            posteriors[disease] = prior * X.apply(lambda x: self.likelihoods[x.name][disease]**x, axis=0).prod(axis=1)
+        # Normalize posteriors
+        posteriors = posteriors.div(posteriors.sum(axis=1), axis=0)
+        # Return class with highest posterior probability
+        return posteriors.idxmax(axis=1)
 
-model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=["accuracy"])
-model.summary()
+# Train the Naive Bayes Classifier
+clf = NaiveBayesClassifier()
+clf.fit(X, y)
 
-# Train the model
-model.fit(padded_sequences, labels, epochs=10, verbose=1)
+# Function to predict disease based on user input
+def predict_disease(input_str):
+    input_symptoms = input_str.lower().split(',')
+    input_symptoms = [s.strip() for s in input_symptoms]
+    input_vector = pd.Series([1 if s in input_symptoms else 0 for s in X.columns])
+    predicted_disease = clf.predict(pd.DataFrame([input_vector], columns=X.columns))[0]
+    predicted_remedies = diseases[predicted_disease]['Remedies'].split(',')
+    return predicted_disease, [r.strip() for r in predicted_remedies]
 
-# Test the model with user input
-while True:
-    input_text = input("Enter symptoms separated by comma: ")
-    input_text = input_text.lower().strip().split(",")
-    input_sequences = tokenizer.texts_to_sequences(input_text)
-    input_padded_sequences = tf.keras.preprocessing.sequence.pad_sequences(input_sequences, maxlen=max_length, padding="post")
-    predicted_label = model.predict(input_padded_sequences)
-    predicted_index = tf.argmax(predicted_label, axis=-1).numpy()[0]
-    predicted_disease = labels.columns[predicted_index]
-    print(f"Predicted Disease: {predicted_disease}")
-    if input("Do you want to test again? (y/n): ").lower() != "y":
-        break
+# Example usage
+input_str = input("Enter symptoms (comma separated): ")
+predicted_disease, predicted_remedies = predict_disease(input_str)
+print(f"Predicted disease: {predicted_disease}")
+print(f"Remedies: {', '.join(predicted_remedies)}")
