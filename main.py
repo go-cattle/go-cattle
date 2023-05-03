@@ -1,74 +1,76 @@
-import pandas as pd
-from collections import defaultdict
+import streamlit as st
+import openai
+import os
+from dotenv import load_dotenv
 
-# Read data from file
-with open('example.txt', 'r') as f:
-    data = f.read()
+load_dotenv()
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
-# Split data into disease records
-records = data.strip().split('\n\n')
 
-# Parse records into a dictionary
-diseases = defaultdict(dict)
-for record in records:
-    lines = record.strip().split('\n')
-    for line in lines:
-        key, value = line.split(':')
-        diseases[lines[0].split(':')[1].strip()][key.strip()] = value.strip()
+def generate_summarizer(
+    max_tokens,
+    temperature,
+    top_p,
+    frequency_penalty,
+    prompt,
+    person_type,
+):
+    res = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        max_tokens=100,
+        temperature=0.7,
+        top_p=0.5,
+        frequency_penalty=0.5,
+        messages=
+       [
+         {
+          "role": "system",
+          "content": "You are a helpful assistant for text summarization.",
+         },
+         {
+          "role": "user",
+          "content": f"Summarize this for a {person_type}: {prompt}",
+         },
+        ],
+    )
+    return res["choices"][0]["message"]["content"]
+#Set the application title
+st.title("GPT-3.5 Text Summarizer")
 
-# Create dictionary mapping symptoms to their frequency in each disease
-symptoms = {}
-for disease, data in diseases.items():
-    symptoms[disease] = {}
-    for symptom in data['Symptoms'].split(','):
-        symptoms[disease][symptom.strip()] = 1
+#Provide the input area for text to be summarized
+input_text = st.text_area("Enter the text you want to summarize:", height=200)
 
-# Create feature matrix X and target vector y
-X = pd.DataFrame(symptoms).fillna(0)
-y = pd.Series(list(symptoms.keys()))
+#Initiate three columns for section to be side-by-side
+col1, col2, col3 = st.columns(3)
 
-# Define the Naive Bayes Classifier
-class NaiveBayesClassifier:
-    
-    def __init__(self):
-        self.priors = None
-        self.likelihoods = None
-    
-    def fit(self, X, y):
-        # Calculate priors
-        self.priors = y.value_counts(normalize=True)
-        # Calculate likelihoods
-        self.likelihoods = {}
-        for feature in X.columns:
-            self.likelihoods[feature] = {}
-            for class_val in y.unique():
-                self.likelihoods[feature][class_val] = (X.loc[y == class_val, feature].sum() + 1) / (y == class_val).sum() # Add-one smoothing
-    
-    def predict(self, X):
-        # Calculate posterior probabilities
-        posteriors = pd.DataFrame(index=X.index, columns=self.priors.index)
-        for disease, prior in self.priors.items():
-            posteriors[disease] = prior * X.apply(lambda x: self.likelihoods[x.name][disease]**x, axis=0).prod(axis=1)
-        # Normalize posteriors
-        posteriors = posteriors.div(posteriors.sum(axis=1), axis=0)
-        # Return class with highest posterior probability
-        return posteriors.idxmax(axis=1)
+#Slider to control the model hyperparameter
+with col1:
+    token = st.slider("Token", min_value=0.0, max_value=200.0, value=50.0, step=1.0)
+    temp = st.slider("Temperature", min_value=0.0, max_value=1.0, value=0.0, step=0.01)
+    top_p = st.slider("Nucleus Sampling", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
+    f_pen = st.slider("Frequency Penalty", min_value=-1.0, max_value=1.0, value=0.0, step=0.01)
 
-# Train the Naive Bayes Classifier
-clf = NaiveBayesClassifier()
-clf.fit(X, y)
+#Selection box to select the summarization style
+with col2:
+    option = st.selectbox(
+        "How do you like to be explained?",
+        (
+            "Second-Grader",
+            "Professional Data Scientist",
+            "Housewives",
+            "Retired",
+            "University Student",
+        ),
+    )
 
-# Function to predict disease based on user input
-def predict_disease(input_str):
-    input_symptoms = input_str.lower().split(',')
-    input_symptoms = [s.strip() for s in input_symptoms]
-    input_vector = pd.Series([1 if s in input_symptoms else 0 for s in X.columns])
-    predicted_disease = clf.predict(pd.DataFrame([input_vector], columns=X.columns))[0]
-    predicted_remedies = diseases[predicted_disease]['Remedies'].split(',')
-    return predicted_disease, [r.strip() for r in predicted_remedies]
+#Showing the current parameter used for the model 
+with col3:
+    with st.expander("Current Parameter"):
+        st.write("Current Token :", token)
+        st.write("Current Temperature :", temp)
+        st.write("Current Nucleus Sampling :", top_p)
+        st.write("Current Frequency Penalty :", f_pen)
 
-# Example usage
-input_str = input("Enter symptoms (comma separated): ")
-predicted_disease, predicted_remedies = predict_disease(input_str)
-print(f"Predicted disease: {predicted_disease}")
-print(f"Remedies: {', '.join(predicted_remedies)}")
+#Creating button for execute the text summarization
+if st.button("Summarize"):
+    st.write(generate_summarizer(token, temp, top_p, f_pen, input_text, option))
