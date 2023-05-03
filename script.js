@@ -19,7 +19,7 @@ form.addEventListener("submit", (event) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": "Bearer YOUR_API_KEY"
+      "Authorization": "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"
     },
     body: JSON.stringify({
       prompt: `Based on the symptoms provided, what disease is the cattle most likely suffering from? Symptoms: ${symptomString}`,
