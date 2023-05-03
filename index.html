@@ -42,5 +42,35 @@
       <input type="submit" value="Submit">
     </form>
     <div id="output"></div>
+    <script>
+      const form = document.getElementById("symptoms-form");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        
+        const symptoms = document.getElementById("symptoms").value;
+        
+        fetch("https://api.openai.com/v1/engines/davinci-002/completions", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer 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"
+        },
+        body: JSON.stringify({
+            prompt: `Based on the symptoms provided, what disease is the cattle most likely suffering from? Symptoms: ${symptoms}`,
+            max_tokens: 1,
+            temperature: 0.7
+        })
+        })
+.then(response => response.json())
+        .then(data => {
+          const output = document.getElementById("output");
+          output.innerHTML = `The most likely disease is ${data.choices[0].text}.`;
+        })
+        .catch(error => {
+          console.error(error);
+        });
+      });
+    </script>
   </body>
 </html>
