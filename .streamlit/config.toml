@@ -1,0 +1,15 @@
+[general]
+email = "sarthaksidhantisopolice@gmail.com"
+[theme]
+base="dark"
+primaryColor="#1fd655"
+backgroundColor="#232323"
+secondaryBackgroundColor="#17201e"
+font = "monospace"
+
+
+
+
+[server]
+headless = true
+port = 8501
