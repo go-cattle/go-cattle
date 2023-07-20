@@ -1,0 +1,490 @@
+Disease: actinobacillosis
+Symptoms: lumpy jaw, difficulty eating, weight loss
+
+Disease: anaplasmosis
+Symptoms: anemia, jaundice, fever
+
+Disease: anthrax
+Symptoms: sudden death, bloody discharge, high fever
+
+Disease: babesiosis
+Symptoms: fever, anemia, weakness
+
+Disease: blackleg
+Symptoms: lameness, swelling, sudden death
+
+Disease: bluetongue
+Symptoms: fever, swollen tongue, lameness
+
+Disease: bovine respiratory disease
+Symptoms: coughing, nasal discharge, fever
+
+Disease: bovine viral diarrhea
+Symptoms: fever, diarrhea, nasal discharge
+
+Disease: bovine spongiform encephalopathy (BSE)
+Symptoms: behavioral changes, difficulty standing, tremors
+
+Disease: brucellosis
+Symptoms: abortion, infertility, swollen joints
+
+Disease: contagious bovine pleuropneumonia
+Symptoms: difficulty breathing, coughing, fever
+
+Disease: dermatophilosis (lumpy wool, rain scald)
+Symptoms: crusty scabs, hair loss, skin inflammation
+
+Disease: foot and mouth disease
+Symptoms: blisters on the tongue and lips, drooling, lameness
+
+Disease: infectious bovine keratoconjunctivitis (pinkeye)
+Symptoms: redness of the eye, excessive tearing, corneal ulceration
+
+Disease: infectious bovine rhinotracheitis
+Symptoms: fever, runny nose, conjunctivitis
+
+Disease: Johne's disease
+Symptoms: chronic diarrhea, weight loss, decreased milk production
+
+Disease: leptospirosis
+Symptoms: fever, jaundice, reproductive problems
+
+Disease: lumpy skin disease
+Symptoms: skin nodules, fever, reduced appetite
+
+Disease: malignant catarrhal fever
+Symptoms: fever, nasal discharge, eye lesions
+
+Disease: mastitis
+Symptoms: swollen udder, abnormal milk, fever
+
+Disease: mucosal disease
+Symptoms: weight loss, diarrhea, poor coat
+
+Disease: papillomatosis (warts)
+Symptoms: warts on skin, decreased appetite, weight loss
+
+Disease: theileriosis
+Symptoms: fever, anemia, enlarged lymph nodes
+
+Disease: trichomoniasis
+Symptoms: infertility, early embryonic death, repeat breeding
+
+Disease: tuberculosis
+Symptoms: weight loss, coughing, fatigue
+
+Disease: vibriosis (campylobacteriosis)
+Symptoms: abortion, infertility, vaginal discharge
+
+Disease: wooden tongue
+Symptoms: swollen tongue, difficulty eating, drooling
+
+Disease: coccidiosis
+Symptoms: diarrhea, dehydration, weight loss
+
+Disease: milk fever (hypocalcemia)
+Symptoms: muscle weakness, staggering gait, low body temperature
+
+Disease: hardware disease
+Symptoms: decreased appetite, weight loss, abdominal pain
+
+Disease: ketosis
+Symptoms: decreased milk production, weight loss, sweet-smelling breath
+
+Disease: acidosis
+Symptoms: decreased appetite, diarrhea, laminitis
+
+Disease: ruminal tympany (bloat)
+Symptoms: distended abdomen, difficulty breathing, decreased appetite
+
+Disease: nitrate poisoning
+Symptoms: rapid breathing, staggering gait, blue mucous membranes
+
+Disease: polioencephalomalacia (polio)
+Symptoms: blindness, head pressing, seizures
+
+Disease: listeriosis
+Symptoms: circling, depression, fever
+
+Disease: selenium deficiency
+Symptoms: muscle weakness, impaired immune function, reduced fertility
+
+Disease: copper deficiency
+Symptoms: anemia, diarrhea, poor growth
+
+Disease: grass tetany (hypomagnesemia)
+Symptoms: muscle tremors, staggering gait, convulsions
+
+Disease: white muscle disease
+Symptoms: lameness, muscle stiffness, weak newborn calves
+
+Disease: foot rot
+Symptoms: lameness, swollen and painful feet, foul-smelling discharge
+
+Disease: pink tooth (actinomycosis)
+Symptoms: swelling of the jaw, difficulty eating, weight loss
+
+Disease: liver fluke infection
+Symptoms: weight loss, anemia, diarrhea
+
+Disease: liver abscesses
+Symptoms: decreased appetite, weight loss, decreased milk production
+
+Disease: urolithiasis (water belly)
+Symptoms: distended abdomen, difficulty urinating, straining
+
+Disease: neosporosis
+Symptoms: abortion, weak newborn calves, neurological signs
+
+Disease: malignant edema
+Symptoms: severe swelling, gas production under the skin, high fever
+
+Disease: clostridial enteritis (overeating disease)
+Symptoms: sudden death, bloody diarrhea, abdominal pain
+
+Disease: mycotoxicosis
+Symptoms: decreased appetite, reduced growth, liver damage
+
+Disease: respiratory syncytial virus infection
+Symptoms: coughing, nasal discharge, rapid breathing
+
+Disease: paratuberculosis (Johne's disease)
+Symptoms: chronic diarrhea, weight loss, decreased milk production
+
+Disease: clostridial abomasitis
+Symptoms: severe abdominal pain, bloating, diarrhea
+
+Disease: enzootic bovine leukosis
+Symptoms: persistent lymph node enlargement, weight loss, decreased milk production
+
+Disease: malignant catarrhal fever
+Symptoms: fever, nasal discharge, eye lesions
+
+Disease: salmonellosis
+Symptoms: fever, diarrhea (often bloody), dehydration
+
+Disease: neoplasia (cancer)
+Symptoms: weight loss, decreased appetite, abnormal growths
+
+Disease: bovine papular stomatitis
+Symptoms: small raised lesions in the mouth, drooling, difficulty eating
+
+Disease: vesicular stomatitis
+Symptoms: blister-like lesions on mouth, teats, hooves, drooling, lameness
+
+Disease: yersiniosis
+Symptoms: fever, diarrhea, joint inflammation
+
+Disease: clostridial enterotoxemia
+Symptoms: sudden death, diarrhea, abdominal pain
+
+Disease: leptospirosis
+Symptoms: fever, jaundice, reproductive problems
+
+Disease: piroplasmosis
+Symptoms: fever, anemia, jaundice
+
+Disease: fungal infections (e.g., ringworm)
+Symptoms: circular skin lesions, hair loss, itching
+
+Disease: hypocalcemia (milk fever)
+Symptoms: muscle weakness, staggering gait, low body temperature
+
+Disease: Johne's disease
+Symptoms: chronic diarrhea, weight loss, reduced milk production
+
+Disease: neosporosis
+Symptoms: abortion, weak calves, nervous system disorders
+
+Disease: vesicular exanthema
+Symptoms: blister-like lesions on the skin, mouth, and hooves, lameness, fever
+
+Disease: bovine besnoitiosis
+Symptoms: skin nodules, weight loss, conjunctivitis
+
+Disease: tick-borne fever (anaplasmosis)
+Symptoms: anemia, fever, decreased milk production
+
+Disease: trypanosomiasis
+Symptoms: anemia, weight loss, neurological signs
+
+Disease: malignant theileriosis
+Symptoms: high fever, anemia, respiratory distress
+
+Disease: contagious ecthyma (orf)
+Symptoms: scabby lesions on the lips and muzzle, fever, reduced appetite
+
+Disease: necrotic stomatitis (calf diphtheria)
+Symptoms: foul breath, painful mouth, difficulty eating
+
+Disease: neoplastic diseases (e.g., lymphoma)
+Symptoms: enlarged lymph nodes, weight loss, decreased performance
+
+Disease: trichomoniasis
+Symptoms: infertility, early embryonic death, repeat breeding
+
+Disease: urinary calculi
+Symptoms: colic, difficulty urinating, blood in urine
+
+Disease: actinobacillosis
+Symptoms: lumpy jaw, difficulty eating, weight loss
+
+Disease: anaplasmosis
+Symptoms: anemia, jaundice, fever, weight loss
+
+Disease: anthrax
+Symptoms: sudden death, bloody discharge, high fever
+
+Disease: babesiosis
+Symptoms: fever, anemia, weakness, weight loss
+
+Disease: blackleg
+Symptoms: lameness, swelling, sudden death
+
+Disease: bluetongue
+Symptoms: fever, swollen tongue, lameness
+
+Disease: bovine respiratory disease
+Symptoms: coughing, nasal discharge, fever
+
+Disease: bovine viral diarrhea
+Symptoms: fever, diarrhea, nasal discharge
+
+Disease: bovine spongiform encephalopathy (BSE)
+Symptoms: behavioral changes, difficulty standing, tremors
+
+Disease: brucellosis
+Symptoms: abortion, infertility, swollen joints
+
+Disease: contagious bovine pleuropneumonia
+Symptoms: difficulty breathing, coughing, fever
+
+Disease: contagious ecthyma (orf)
+Symptoms: scabby lesions on the lips and muzzle, fever, reduced appetite
+
+Disease: coccidiosis
+Symptoms: diarrhea, dehydration, weight loss
+
+Disease: clostridial abomasitis
+Symptoms: severe abdominal pain, bloating, diarrhea
+
+Disease: clostridial enteritis (overeating disease)
+Symptoms: sudden death, bloody diarrhea, abdominal pain
+
+Disease: clostridial enterotoxemia
+Symptoms: sudden death, diarrhea, abdominal pain
+
+Disease: copper deficiency
+Symptoms: anemia, diarrhea, poor growth
+
+Disease: dermatophilosis (lumpy wool, rain scald)
+Symptoms: crusty scabs, hair loss, skin inflammation
+
+Disease: enzootic bovine leukosis
+Symptoms: persistent lymph node enlargement, weight loss, decreased milk production
+
+Disease: foot and mouth disease
+Symptoms: blisters on the tongue and lips, drooling, lameness
+
+Disease: foot rot
+Symptoms: lameness, swollen and painful feet, foul-smelling discharge
+
+Disease: fungal infections (e.g., ringworm)
+Symptoms: circular skin lesions, hair loss, itching
+
+Disease: grass tetany (hypomagnesemia)
+Symptoms: muscle tremors, staggering gait, convulsions
+
+Disease: hardware disease
+Symptoms: decreased appetite, weight loss, abdominal pain
+
+Disease: hypocalcemia (milk fever)
+Symptoms: muscle weakness, staggering gait, low body temperature
+
+Disease: infectious bovine keratoconjunctivitis (pinkeye)
+Symptoms: redness of the eye, excessive tearing, corneal ulceration
+
+Disease: infectious bovine rhinotracheitis
+Symptoms: fever, runny nose, conjunctivitis
+
+Disease: Johne's disease (paratuberculosis)
+Symptoms: chronic diarrhea, weight loss, reduced milk production
+
+Disease: ketosis
+Symptoms: decreased milk production, weight loss, sweet-smelling breath
+
+Disease: lactation tetany (hypocalcemia)
+Symptoms: muscle weakness, staggering gait, low body temperature
+
+Disease: leptospirosis
+Symptoms: fever, jaundice, reproductive problems
+
+Disease: listeriosis
+Symptoms: circling, depression, fever
+
+Disease: liver fluke infection
+Symptoms: weight loss, anemia, diarrhea
+
+Disease: malignant catarrhal fever
+Symptoms: fever, nasal discharge, eye lesions
+
+Disease: malignant edema
+Symptoms: severe swelling, gas production under the skin, high fever
+
+Disease: mastitis
+Symptoms: swollen udder, abnormal milk, fever
+
+Disease: milk fever (hypocalcemia)
+Symptoms: muscle weakness, staggering gait, low body temperature
+
+Disease: mucosal disease
+Symptoms: weight loss, diarrhea, poor coat
+
+Disease: mycotoxicosis
+Symptoms: decreased appetite, reduced growth, liver damage
+
+Disease: neoplasia (cancer)
+Symptoms: weight loss, decreased appetite, abnormal growths
+
+Disease: neosporosis
+Symptoms: abortion, weak calves, nervous system disorders
+
+Disease: necrotic stomatitis (calf diphtheria)
+Symptoms: foul breath, painful mouth, difficulty eating
+
+Disease: neoplastic diseases (e.g., lymphoma)
+Symptoms: enlarged lymph nodes, weight loss, decreased performance
+
+Disease: nitrate poisoning
+Symptoms: rapid breathing, staggering gait, blue mucous membranes
+
+Disease: papillomatosis (warts)
+Symptoms: warts on skin, decreased appetite, weight loss
+
+Disease: piroplasmosis
+Symptoms: fever, anemia, jaundice
+
+Disease: polioencephalomalacia (polio)
+Symptoms: blindness, head pressing, seizures
+
+Disease: respiratory syncytial virus infection
+Symptoms: coughing, nasal discharge, rapid breathing
+
+Disease: ruminal tympany (bloat)
+Symptoms: distended abdomen, difficulty breathing, decreased appetite
+
+Disease: salmonellosis
+Symptoms: fever, diarrhea (often bloody), dehydration
+
+Disease: selenium deficiency
+Symptoms: muscle weakness, impaired immune function, reduced fertility
+
+Disease: trichomoniasis
+Symptoms: infertility, early embryonic death, repeat breeding
+
+Disease: tuberculosis
+Symptoms: weight loss, coughing, fatigue
+
+Disease: trypanosomiasis
+Symptoms: anemia, weight loss, neurological signs
+
+Disease: urinary calculi
+Symptoms: colic, difficulty urinating, blood in urine
+
+Disease: vesicular exanthema
+Symptoms: blister-like lesions on the skin, mouth, and hooves, lameness, fever
+
+Disease: vesicular stomatitis
+Symptoms: blister-like lesions on mouth, teats, and hooves, drooling, lameness
+
+Disease: vibriosis (campylobacteriosis)
+Symptoms: abortion, infertility, vaginal discharge
+
+Disease: white muscle disease
+Symptoms: lameness, muscle stiffness, weak newborn calves
+
+Disease: wooden tongue
+Symptoms: swollen tongue, difficulty eating, drooling
+
+Disease: yersiniosis
+Symptoms: fever, diarrhea, joint inflammation
+
+Disease: actinobacillosis
+Symptoms: lumpy jaw, difficulty eating, weight loss, swelling
+
+Disease: anaplasmosis
+Symptoms: anemia, jaundice, fever, weight loss, lethargy
+
+Disease: anthrax
+Symptoms: sudden death, bloody discharge, high fever, depression
+
+Disease: babesiosis
+Symptoms: fever, anemia, weakness, weight loss, dark urine
+
+Disease: blackleg
+Symptoms: lameness, swelling, sudden death, fever, depression
+
+Disease: bluetongue
+Symptoms: fever, swollen tongue, lameness, drooling, respiratory distress
+
+Disease: bovine respiratory disease
+Symptoms: coughing, nasal discharge, fever, rapid breathing, loss of appetite
+
+Disease: bovine viral diarrhea (BVD)
+Symptoms: fever, diarrhea, nasal discharge, oral ulcers, immunosuppression
+
+Disease: bovine spongiform encephalopathy (BSE)
+Symptoms: behavioral changes, difficulty standing, tremors, weight loss, nervousness
+
+Disease: brucellosis
+Symptoms: abortion, infertility, swollen joints, weight loss, reduced milk production
+
+Disease: contagious bovine pleuropneumonia
+Symptoms: difficulty breathing, coughing, fever, nasal discharge, decreased appetite
+
+Disease: contagious ecthyma (orf)
+Symptoms: scabby lesions on the lips and muzzle, fever, reduced appetite, lameness
+
+Disease: coccidiosis
+Symptoms: diarrhea, dehydration, weight loss, decreased appetite, rough hair coat
+
+Disease: clostridial abomasitis
+Symptoms: severe abdominal pain, bloating, diarrhea, reduced milk production, depression
+
+Disease: clostridial enteritis (overeating disease)
+Symptoms: sudden death, bloody diarrhea, abdominal pain, fever, depression
+
+Disease: clostridial enterotoxemia
+Symptoms: sudden death, diarrhea, abdominal pain, lethargy, fever
+
+Disease: copper deficiency
+Symptoms: anemia, diarrhea, poor growth, pale mucous membranes, bone abnormalities
+
+Disease: dermatophilosis (lumpy wool, rain scald)
+Symptoms: crusty scabs, hair loss, skin inflammation, itching, lameness
+
+Disease: enzootic bovine leukosis
+Symptoms: persistent lymph node enlargement, weight loss, decreased milk production, anemia, immunosuppression
+
+Disease: foot and mouth disease
+Symptoms: blisters on the tongue and lips, drooling, lameness, fever, reduced appetite
+
+Disease: foot rot
+Symptoms: lameness, swollen and painful feet, foul-smelling discharge, reluctance to walk, fever
+
+Disease: fungal infections (e.g., ringworm)
+Symptoms: circular skin lesions, hair loss, itching, crusty skin, thickened nails
+
+Disease: grass tetany (hypomagnesemia)
+Symptoms: muscle tremors, staggering gait, convulsions, agitation, hypersensitivity to touch
+
+Disease: hardware disease
+Symptoms: decreased appetite, weight loss, abdominal pain, decreased milk production, dull coat
+
+Disease: hypocalcemia (milk fever)
+Symptoms: muscle weakness, staggering gait, low body temperature, decreased milk production, restlessness
+
+Disease: infectious bovine keratoconjunctivitis (pinkeye)
+Symptoms: redness of the eye, excessive tearing, corneal ulcer
+
+
